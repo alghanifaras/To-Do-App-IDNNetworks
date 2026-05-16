@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.vue';
+
+@theme {
+    --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-headline: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+    --color-background: #f4d03f;
+    --color-surface: #fcfaf2;
+    --color-primary: #705d00;
+    --color-primary-container: #f4d03f;
+    --color-secondary-container: #e6e5b9;
+    --color-tertiary-fixed: #a9edff;
+    --color-tertiary-fixed-dim: #56d6f2;
+    --color-error-container: #ffdad6;
+    --color-on-background: #1b1b1b;
+    --color-on-surface-variant: #4c4634;
+    --color-surface-container: #eeeeee;
+    --color-surface-container-low: #f3f3f3;
+}
+
+@layer base {
+    body {
+        background-color: var(--color-background);
+        background-image: radial-gradient(#d4b437 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: var(--color-on-background);
+        font-family: var(--font-sans);
+    }
+}
+
+@layer components {
+    .neo-border {
+        border: 3px solid #1b1b1b;
+    }
+
+    .neo-shadow {
+        box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
+    }
+
+    .neo-shadow-lg {
+        box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 1);
+    }
+
+    .neo-press:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+    }
+
+    .font-headline {
+        font-family: var(--font-headline);
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+    }
+}
