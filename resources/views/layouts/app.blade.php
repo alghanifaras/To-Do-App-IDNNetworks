@@ -16,6 +16,7 @@
         rel="stylesheet"
     >
      <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+     
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -48,7 +49,9 @@
     <!-- Main Content -->
     <main class="mx-auto max-w-7xl space-y-12 px-6 pt-28">
         @if (session('success'))
-            <div class="neo-border neo-shadow bg-green-100 p-4 font-semibold text-green-800">
+            <div
+                id="alert-success"
+             class="neo-border neo-shadow bg-green-100 p-4 font-semibold text-green-800 transition-all duration-500 ease-in-out opacity-100 translate-y-0">
                 {{ session('success') }}
             </div>
         @endif
@@ -74,5 +77,24 @@
             <span class="text-xs font-semibold">New Task</span>
         </a>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alert = document.getElementById('alert-success');
+
+            if (alert) {
+                setTimeout(() => {
+                    alert.classList.remove('opacity-100', 'translate-y-0');
+                    alert.classList.add('opacity-0', '-translate-y-2');
+
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 500); 
+                }, 3000); 
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
